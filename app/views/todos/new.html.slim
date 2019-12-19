@@ -1,0 +1,22 @@
+- if @todo.errors.any?
+  .alert.alert-warning
+    ul
+      - @todo.errors.each do |message|
+        li = "#{message}が入力されていません"
+
+.container
+  = form_with model: @todo, local: true do |f|
+    .form-group
+      = f.label :title, 'タイトル'
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :content, '内容'
+      = f.text_area :content, class: 'form-control'
+    .form-group style="width: 100%; margin-left: 58%;"
+      .btn-toolbar
+        = link_to todos_path, class: "btn btn-secondary btn-group", style: "width: 20%" do
+          i.fas.fa-chevron-left.fa-fw
+          | キャンセル
+
+        = button_tag type: 'submit', class: "btn btn-primary btn-group", style: "width: 20%; margin-left: 2%" do
+          | 追加

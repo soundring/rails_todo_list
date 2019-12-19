@@ -1,0 +1,15 @@
+= form_with model: @user, local: true, class: 'container' do |f|
+  .form-group.col-sm-12
+    = f.label :email, 'メールアドレス'
+    = f.text_field :email, class: 'form-control', placeholder: 'メールアドレス'
+  .form-group.col-sm-12
+    = f.label :name, '名前'
+    = f.text_field :name, class: 'form-control', placeholder: '名前'
+  .form-group.col-sm-12
+    = f.label :password, 'パスワード'
+    = f.password_field :password, class: 'form-control', placeholder: 'パスワード'
+  .form-group.col-sm-12
+    = f.label :password_confirmation, 'パスワード(再入力)'
+    = f.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワード(再入力)'
+  .form-group.col-sm-12
+    = f.submit '新規登録', class: 'btn btn-primary'

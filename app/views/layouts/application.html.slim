@@ -8,4 +8,22 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
+    .navbar.navbar-expand-lg.navbar-dark.bg-primary style="color: white"
+      .navbar-brand 
+        = link_to 'Todo List', root_path, style: "color: white"
+      .collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+        - if logged_in?
+          li.nav-item style="list-style-type: none"
+            a.nav-link = current_user.name
+
+          li.nav-item style="list-style-type: none"
+            .nav-link = link_to 'ログアウト', logout_path, method: :delete, style: "color: white"
+        - else
+          li.navbar-item style="list-style-type: none"
+             .nav-link = link_to '新規登録', new_user_path, style: "color: white"
+    - flash.each do |message_type, message|
+      - if message_type == "notice"
+        - message_type = "success"
+      .alert class= "alert-#{message_type}" = message
     = yield
