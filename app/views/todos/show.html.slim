@@ -1,0 +1,9 @@
+.container
+  ul.list-group
+    li.list-group-item
+      = @todo.title
+    li.list-group-item
+      = @todo.content
+  = link_to todos_path, class: "btn btn-secondary btn-group", style: "width: 20%" do
+          i.fas.fa-chevron-left.fa-fw
+          | 戻る

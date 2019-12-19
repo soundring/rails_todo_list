@@ -1,0 +1,10 @@
+h1 Todoリスト 
+
+.container
+  = link_to '新規追加', new_todo_path, class: 'btn btn-primary'
+  ul.list-group
+    - @todos.each do |todo|
+      li.list-group-item
+        = todo.title
+        = button_to '削除', todo_path(todo.id), method: :delete, data:{confirm: '本当に削除しますか？'}, class: 'btn btn-danger float-right'
+        = button_to '詳細', todo_path(todo.id), class: 'btn btn-success float-right'
